@@ -220,7 +220,7 @@
         
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-light" id="cancelBtn">Cancel</button>
+                                <button type="button" class="btn btn-light" id="cancelBtn">Back</button>
                             </div>
                         </form>
                     </div>
