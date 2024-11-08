@@ -195,33 +195,44 @@
                         <h4 class="card-title">View Student Details</h4>
                         <p class="card-description">Here you can view the details of the student.</p>
                         <form class="forms-sample" action="" method="POST">
-                            @csrf
-                             <!-- Student NUM -->
-                             <div class="form-group">
-                              <label for="student_name">Student NUMBER</label>
-                              <input type="text" class="form-control" id="student_name" value="{{ $student->registration_number }}" readonly>
+                          @csrf
+                          <!-- Student Registration Number -->
+                          <div class="form-group">
+                              <label for="registration_number">Student Number</label>
+                              <input type="text" class="form-control" id="registration_number" value="{{ $student->registration_number }}" readonly>
                           </div>
-                            <!-- Student Name -->
-                            <div class="form-group">
-                                <label for="student_name">Student Name</label>
-                                <input type="text" class="form-control" id="student_name" value="{{ $student->student_name }}" readonly>
-                            </div>
-                            <!-- Student Level -->
-                            <div class="form-group">
-                                <label for="student_level">Student Level</label>
-                                <input type="text" class="form-control" id="student_level" value="{{ $student->student_level }}" readonly>
-                            </div>
-                            <!-- Student Age -->
-                            <div class="form-group">
-                                <label for="student_age">Student Age</label>
-                                <input type="text" class="form-control" id="student_age" value="{{ $student->age }}" readonly>
-                            </div>
-        
-                            <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('student.index') }}'">Back</button>
-                                <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details</button>
-                            </div>
-                        </form>
+                          <!-- Student Name -->
+                          <div class="form-group">
+                              <label for="student_name">Student Name</label>
+                              <input type="text" class="form-control" id="student_name" value="{{ $student->student_name }}" readonly>
+                          </div>
+                          <!-- Student Level -->
+                          <div class="form-group">
+                              <label for="student_level">Student Level</label>
+                              <input type="text" class="form-control" id="student_level" value="{{ $student->student_level }}" readonly>
+                          </div>
+                          <!-- Student Phone -->
+                          <div class="form-group">
+                              <label for="phone">Student Phone</label>
+                              <input type="text" class="form-control" id="phone" value="{{ $student->phone }}" readonly>
+                          </div>
+                          <!-- Student Date of Birth -->
+                          <div class="form-group">
+                              <label for="dob">Date of Birth</label>
+                              <input type="text" class="form-control" id="dob" value="{{ $student->dob }}" readonly>
+                          </div>
+                          <!-- Student Email -->
+                          <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="text" class="form-control" id="email" value="{{ $student->email }}" readonly>
+                          </div>
+                      
+                          <div class="d-flex justify-content-between">
+                              <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('student.index') }}'">Back</button>
+                              <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details</button>
+                          </div>
+                      </form>
+                      
                     </div>
                 </div>
             </div>

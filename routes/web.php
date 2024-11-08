@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentDashboardController;
+
 
 use App\Http\Controllers\DashboardController;
 
@@ -28,8 +30,12 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
+])->group(function () {   
+
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/student-dashboard',[StudentDashboardController::class, 'index'])->name('student-dashboard');
+
+    
 
     Route::get('/create-student',[StudentController::class, 'create'])->name('student.create');
     Route::post('/store-student',[StudentController::class, 'store'])->name('student.store');
@@ -37,4 +43,13 @@ Route::middleware([
     Route::get('/{id}/show',[StudentController::class, 'show'])->name('student.show');
     Route::get('/{id}/edit',[StudentController::class, 'edit'])->name('student.edit');
     Route::put('/{id}/update',[StudentController::class, 'update'])->name('student.update');
+
+    
+
+ 
 });
+
+
+
+
+

@@ -189,38 +189,58 @@
 
 
           <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
+            <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Edit Student Form</h4>
                         <p class="card-description">
-                            <!-- Notification area for success or error -->
-                            <div id="notification" class="mt-3"></div>
+                           
                         </p>
                         <form id="updateForm" class="forms-sample" action="{{ route('student.update', $student->id) }}" method="POST">
                             @csrf
                             @method('PUT')
+                            <!-- Student Registration Number -->
                             <div class="form-group">
-                              <label for="student_name">Student Number</label>
-                              <input type="text" class="form-control" value="{{ $student->registration_number }}" name="registration_number" readonly>
-                          </div>
+                                <label for="registration_number">Student Number</label>
+                                <input type="text" class="form-control" value="{{ $student->registration_number }}" name="registration_number" readonly>
+                            </div>
         
+                            <!-- Student Email -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{ $student->email }}" readonly>
+                            </div>
+        
+                            <!-- Student Name -->
                             <div class="form-group">
                                 <label for="student_name">Student Name</label>
                                 <input type="text" class="form-control" value="{{ $student->student_name }}" name="student_name" placeholder="Enter Student Name">
                             </div>
+        
+                            <!-- Student Level -->
                             <div class="form-group">
                                 <label for="student_level">Student Level</label>
                                 <input type="text" class="form-control" value="{{ $student->student_level }}" name="student_level" placeholder="Enter Student Level">
                             </div>
+        
+                            <!-- Student Phone -->
                             <div class="form-group">
-                                <label for="age">Student Age</label>
-                                <input type="text" class="form-control" name="age" placeholder="Student Age" value="{{ $student->age }}">
+                                <label for="phone">Student Phone</label>
+                                <input type="text" class="form-control" name="phone" placeholder="Enter Student Phone" value="{{ $student->phone }}">
                             </div>
+        
+                            <!-- Student Date of Birth -->
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" class="form-control" name="dob" placeholder="Enter Date of Birth" value="{{ $student->dob }}">
+                            </div>
+        
+                            <!-- Notification area for success or error -->
+                            <div id="notification" class="mt-3"></div>
         
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-light" id="cancelBtn">Back</button>
+                                <button type="button" class="btn btn-light" id="cancelBtn" onclick="window.location.href='{{ route('student.index') }}'">Back</button>
                             </div>
                         </form>
                     </div>
@@ -254,6 +274,11 @@
                                     '<span aria-hidden="true">&times;</span>' +
                                     '</button>' +
                                     '</div>');
+        
+                                // Automatically hide the notification after 5 seconds
+                                setTimeout(function() {
+                                    $('#notification .alert').fadeOut();
+                                }, 5000);
                             }
                         },
                         error: function(xhr) {

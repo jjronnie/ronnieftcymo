@@ -200,34 +200,42 @@
                         <div id="notification" class="mt-3"></div>
                         </p>
                         <form id="registerForm" class="forms-sample" action="{{ route('student.store') }}" method="POST">
-                            @csrf
-        
-                            <div class="form-group">
-                                <label for="student_name">Student Name</label>
-                                <input type="text" class="form-control" name="student_name" placeholder="Enter Student Name" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label for="student_level">Student Level</label>
-                                <select class="form-control" name="student_level" required>
-                                    <option value="">Select Student Level</option>
-                                    <option value="S1">S1</option>
-                                    <option value="S2">S2</option>
-                                    <option value="S3">S3</option>
-                                    <option value="S4">S4</option>
-                                    <option value="S5">S5</option>
-                                    <option value="S6">S6</option>
-                                </select>
-                            </div>
-        
-                            <div class="form-group">
-                                <label for="age">Student Age</label>
-                                <input type="number" class="form-control" name="age" placeholder="Student Age" required>
-                            </div>
-        
-                            <button type="submit" class="btn btn-primary mr-2">Register</button>
-                            <button type="button" class="btn btn-light" onclick="resetForm()">Cancel</button>
-                        </form>
+                          @csrf
+                      
+                          <div class="form-group">
+                              <label for="student_name">Student Name</label>
+                              <input type="text" class="form-control" name="student_name" placeholder="Enter Student Name" required>
+                          </div>
+                      
+                          <div class="form-group">
+                              <label for="student_level">Student Level</label>
+                              <select class="form-control" name="student_level" required>
+                                  <option value="">Select Student Level</option>
+                                  <option value="S1">S1</option>
+                                  <option value="S2">S2</option>
+                                  <option value="S3">S3</option>
+                                  <option value="S4">S4</option>
+                                  <option value="S5">S5</option>
+                                  <option value="S6">S6</option>
+                              </select>
+                          </div>
+                      
+                         
+                      
+                          <div class="form-group">
+                              <label for="phone">Student Phone Number</label>
+                              <input type="tel" class="form-control" name="phone" placeholder="Enter Student Phone Number" required>
+                          </div>
+                      
+                          <div class="form-group">
+                              <label for="dob">Date of Birth</label>
+                              <input type="date" class="form-control" name="dob" required>
+                          </div>
+                      
+                          <button type="submit" class="btn btn-primary mr-2">Register</button>
+                          <button type="button" class="btn btn-light" onclick="resetForm()">Cancel</button>
+                      </form>
+                      
                     </div>
                 </div>
             </div>

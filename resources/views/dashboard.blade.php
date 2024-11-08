@@ -194,7 +194,7 @@
                     <div class="statistics-item">
                         <p>
                             <i class="icon-sm fa fa-user mr-2"></i>
-                            Total Students
+                            Registered Students
                         </p>
                         <h2>{{ $totalStudents }} 
                             {{-- <small>

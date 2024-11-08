@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo" href="{{ route('welcome') }}"><img src="{{asset('images/logo-mini.webp')}}" alt="logo"/></a>
+      <a class="navbar-brand brand-logo" href="{{ route('welcome') }}"><img src="{{asset('images/elite.png')}}" alt="logo"/></a>
       <a class="navbar-brand brand-logo-mini" href="{{ route('welcome') }}"><img src="{{asset('images/logo-mini.svg')}}" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -169,10 +169,11 @@
         @endif
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="#">
-                  <i class="fas fa-cog text-primary"></i>
-                  Settings
-              </a>
+            <a class="dropdown-item" href="{{ route('profile.show') }}" wire:navigate>
+              <i class="fas fa-cog text-primary"></i>
+              Profile
+          </a>
+          
               <div class="dropdown-divider"></div>
               <!-- Logout Link -->
               <a class="dropdown-item" href="{{ route('logout') }}" 

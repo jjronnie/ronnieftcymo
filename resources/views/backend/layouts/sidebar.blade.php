@@ -13,7 +13,7 @@
         
           <div class="profile-name">
             <p class="name text-small">
-              Howdy! {{ auth()->user()->name }}
+              Hi!! {{ auth()->user()->name }}
             </p>
             <p class="designation">
               Super Admin

@@ -17,11 +17,15 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('student_name');
             $table->string('student_level');
-            $table->integer('age');
-
+            $table->string('phone');
+            $table->date('dob');
+            $table->string('registration_number')->unique();
+            $table->string('email')->unique();
+    
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

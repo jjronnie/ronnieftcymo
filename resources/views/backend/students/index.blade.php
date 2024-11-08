@@ -214,36 +214,41 @@
                         <div id="showingMessage" class="mb-3"></div>
         
                         <div class="row">
-                            <div class="col-12">
-                                <div class="table-responsive">
-                                    <table id="order-listing" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Student No.</th>
-                                                <th>Student Name</th>
-                                                <th>Student Level</th>
-                                                <th>Age</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="studentTable">
-                                            @foreach ($students as $student)
-                                            <tr>
-                                                <td>{{ $student->registration_number }}</td>
-                                                <td>{{ $student->student_name }}</td>
-                                                <td>{{ $student->student_level }}</td>
-                                                <td>{{ $student->age }}</td>
-                                                <td>
-                                                    <a href="{{ route('student.show', $student->id) }}" class="btn btn-outline-primary">View</a>
-                                                    <a href="{{ route('student.edit', $student->id) }}" class="btn btn-outline-success">Edit</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                          <div class="col-12">
+                              <div class="table-responsive">
+                                  <table id="order-listing" class="table">
+                                      <thead>
+                                          <tr>
+                                              <th>Student No.</th>
+                                              <th>Student Name</th>
+                                              <th>Student Level</th>
+                                              <th>Phone</th>
+                                              
+                                              <th>Email</th>
+                                              <th>Actions</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody id="studentTable">
+                                          @foreach ($students as $student)
+                                          <tr>
+                                              <td>{{ $student->registration_number }}</td>
+                                              <td>{{ $student->student_name }}</td>
+                                              <td>{{ $student->student_level }}</td>
+                                              <td>{{ $student->phone }}</td>
+                                             
+                                              <td>{{ $student->email }}</td>
+                                              <td>
+                                                  <a href="{{ route('student.show', $student->id) }}" class="btn btn-outline-primary">View</a>
+                                                  <a href="{{ route('student.edit', $student->id) }}" class="btn btn-outline-success">Edit</a>
+                                              </td>
+                                          </tr>
+                                          @endforeach
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                      
                     </div>
                 </div>
             </div>

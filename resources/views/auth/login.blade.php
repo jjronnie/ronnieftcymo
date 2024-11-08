@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <!-- Custom Logo -->
+            <img src="{{ asset('images/elite.png') }}" alt="Elites Academy Logo" class="w-20 h-20 mx-auto mb-4">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -14,14 +15,16 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <h2 class="text-center text-2xl font-bold text-gray-700 mb-6">Sign in to Access the Platform</h2>
+
 
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-label for="email" value="{{ __('Your Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('Your Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
