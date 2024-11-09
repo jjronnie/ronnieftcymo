@@ -189,7 +189,7 @@
 
 
           <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
+            <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">View Student Details</h4>
@@ -227,9 +227,38 @@
                               <input type="text" class="form-control" id="email" value="{{ $student->email }}" readonly>
                           </div>
                       
-                          <div class="d-flex justify-content-between">
+                          <div>
+                            <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details </button>
+                              <!-- Delete student Button with Confirmation -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete student</button>
+
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete student</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Are you sure you want to delete the student {{ $student->student_name }}? This action cannot be undone.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <form action="{{ route('delete-student', $student->id) }}" method="POST" class="d-inline">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                             
                               <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('student.index') }}'">Back</button>
-                              <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details</button>
+                                
                           </div>
                       </form>
                       

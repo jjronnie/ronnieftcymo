@@ -193,8 +193,9 @@
                   <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <div class="statistics-item">
                         <p>
-                            <i class="icon-sm fa fa-user mr-2"></i>
-                            Registered Students
+                          <i class="icon-sm fas fa-user-graduate mr-2"></i>
+                          Registered Students
+                          
                         </p>
                         <h2>{{ $totalStudents }} 
                             {{-- <small>
@@ -205,52 +206,49 @@
                         </h2>
                     </div>
                     
+                    <div class="statistics-item">
+                      <p>
+                        <i class="icon-sm fas fa-book mr-2"></i>
+                        Number of Courses
+                        
+                      </p>
+                      <h2>{{ $totalCourses }}</h2>
+                  </div>
+                  
                       <div class="statistics-item">
                         <p>
-                          <i class="icon-sm fas fa-hourglass-half mr-2"></i>
-                          Teachers
-                        </p>
-                        <h2>10</h2>
-                        <label class="badge badge-outline-danger badge-pill">30% decrease</label>
-                      </div>
-                      <div class="statistics-item">
-                        <p>
-                          <i class="icon-sm fas fa-cloud-download-alt mr-2"></i>
-                          Classes
+                          <i class="icon-sm fas fa-clipboard-list mr-2"></i>
+                          Recent Enrollments
+                          
                         </p>
                         <h2>8</h2>
-                        <label class="badge badge-outline-success badge-pill">12% increase</label>
+                      
                       </div>
-                      <div class="statistics-item">
-                        <p>
-                          <i class="icon-sm fas fa-check-circle mr-2"></i>
-                          Subjects
-                        </p>
-                        <h2>15</h2>
-                        <label class="badge badge-outline-success badge-pill">57% increase</label>
-                      </div>
-                      <div class="statistics-item">
-                        <p>
-                          <i class="icon-sm fas fa-chart-line mr-2"></i>
-                          Active
-                        </p>
-                        <h2>318</h2>
-                        <label class="badge badge-outline-success badge-pill">10% increase</label>
-                      </div>
-                      <div class="statistics-item">
-                        <p>
-                          <i class="icon-sm fas fa-circle-notch mr-2"></i>
-                          Inactive
-                        </p>
-                        <h2>23</h2>
-                        <label class="badge badge-outline-danger badge-pill">16% decrease</label>
-                      </div>
+                     
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
+
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">
+                    <i class="fas fa-chart-pie"></i>
+                    Sales status
+                  </h4>
+                  <div class="flex-grow-1 d-flex flex-column justify-content-between">
+                    <canvas id="sales-status-chart" class="mt-3"></canvas>
+                    <div class="pt-4">
+                      <div id="sales-status-chart-legend" class="sales-status-chart-legend"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">

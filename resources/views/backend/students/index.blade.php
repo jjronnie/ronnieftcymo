@@ -202,7 +202,7 @@
                             </div>
                             <div class="col-md-6">
                                 <select id="limit" class="form-control" onchange="limitStudents()">
-                                    <option value="5">5</option>
+                                   
                                     <option value="10">10</option>
                                     <option value="20">20</option>
                                     <option value="all">All</option>

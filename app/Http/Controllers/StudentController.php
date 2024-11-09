@@ -83,16 +83,7 @@ class StudentController extends Controller
             // Save the student
             $student->save();
     
-            // Now create a user account for the student
-            $password = str_replace('@elite.ac.ug', '', $studentEmail); // Remove the domain part from the email to create a password
-    
-            // Create the user account
-            $user = new User();
-            $user->name = $student->student_name; // Use the student's name
-            $user->email = $student->email; // Use the student's generated email
-            $user->password = Hash::make($password); // Hash the password
-            $user->role = 'student'; 
-            $user->save();
+         
     
             return response()->json([
                 'success' => 'Student ' . $student->student_name . ' has been successfully registered with Registration Number: ' . $student->registration_number . ' and Email: ' . $student->email
@@ -174,9 +165,16 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        // Find the student by id, using findOrFail to throw a 404 error if not found
+        $student = Student::findOrFail($id);
+    
+        // Delete the student
+        $student->delete();
+    
+        // Redirect back to the students index page with a success message
+        return redirect()->route('student.index');
     }
    
 }

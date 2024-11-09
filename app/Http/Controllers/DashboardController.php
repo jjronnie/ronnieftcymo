@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use App\Models\Course;
 
 use Illuminate\Http\Request;
 
@@ -14,22 +15,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+ // Count the total number of courses
+ $totalCourses = Course::count();
+
+ 
+
        // Get the total number of students
     $totalStudents = Student::count();
 
    
-    // The previous count.
-    $previousCount = 1;  // 
     
-    // Calculate the percentage increase
-    if ($previousCount > 0) {
-        $increasePercentage = (($totalStudents - $previousCount) / $previousCount) * 100;
-    } else {
-        $increasePercentage = 0; // Avoid division by zero if no previous count
-    }
+    
+  
 
     // Pass the values to the view
-    return view('dashboard', compact('totalStudents', 'increasePercentage'));
+    return view('dashboard', compact('totalStudents', 'totalCourses'));
     }
 
     /**

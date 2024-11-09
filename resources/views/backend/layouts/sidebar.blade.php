@@ -16,7 +16,7 @@
               Hi!! {{ auth()->user()->name }}
             </p>
             <p class="designation">
-              Super Admin
+              {{ auth()->user()->role }}
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@
 
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
-            <i class="fas fa-graduation-cap menu-icon"></i>
+          <i class="icon-sm fas fa-user-graduate mr-2"></i>
 
           <span class="menu-title">Student</span>
           <i class="menu-arrow"></i>
@@ -45,17 +45,17 @@
         </div>
       </li>
 
-      {{-- //teacher --}}
+      {{-- // --}}
       <li class="nav-item d-none d-lg-block">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts" aria-expanded="false" aria-controls="sidebar-layouts">
-          <i class="fas fa-columns menu-icon"></i>
-          <span class="menu-title">Teacher</span>
+          <i class="fas fa-folder-open menu-icon"></i>
+          <span class="menu-title">Course</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="sidebar-layouts">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Add Teacher</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">View Teachers</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('course.create')}}">Add Course</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('course.index')}}">View Courses</a></li>
        </ul>
         </div>
       </li>
