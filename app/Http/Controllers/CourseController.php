@@ -74,8 +74,7 @@ class CourseController extends Controller
         return response()->json([
             'success' => 'New Course with Course Code ' . $nextCourseId . ' has been successfully created!'
         ]);
-    }
-    
+    }  
     
 
     /**
