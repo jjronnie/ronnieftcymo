@@ -1,3 +1,4 @@
+
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo" href="{{ route('welcome') }}"><img src="{{asset('images/elite.png')}}" alt="logo"/></a>
@@ -9,7 +10,7 @@
       </button>
       <ul class="navbar-nav">
         <li class="nav-item nav-search d-none d-md-flex">
-          <div class="nav-link">
+          {{-- <div class="nav-link">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -18,16 +19,18 @@
               </div>
               <input type="text" class="form-control" placeholder="Search" aria-label="Search">
             </div>
-          </div>
+          </div> --}}
+
+          <marquee behavior="" direction="left">ELITE ACADEMY E-STUDENT MANAGEMENT PLATFORM</marquee>
         </li>
       </ul>
       <ul class="navbar-nav navbar-nav-right">
-        <li class="nav-item d-none d-lg-flex">
+        {{-- <li class="nav-item d-none d-lg-flex">
           <a class="nav-link" href="#">
             <span class="btn btn-primary">+ Create new</span>
           </a>
-        </li>
-        <li class="nav-item dropdown d-none d-lg-flex">
+        </li> --}}
+        {{-- <li class="nav-item dropdown d-none d-lg-flex">
           <div class="nav-link">
             <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown" data-toggle="dropdown">English</span>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
@@ -48,62 +51,39 @@
               </a>
             </div>
           </div>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-            <i class="fas fa-bell mx-0"></i>
-            <span class="count">16</span>
+              <i class="fas fa-bell mx-0"></i>
+              <span class="count">16</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-            <a class="dropdown-item">
-              <p class="mb-0 font-weight-normal float-left">You have 16 new notifications
-              </p>
-              <span class="badge badge-pill badge-warning float-right">View all</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-danger">
-                  <i class="fas fa-exclamation-circle mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-medium">Application Error</h6>
-                <p class="font-weight-light small-text">
-                  Just now
-                </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-warning">
-                  <i class="fas fa-wrench mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-medium">Settings</h6>
-                <p class="font-weight-light small-text">
-                  Private message
-                </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-info">
-                  <i class="far fa-envelope mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-medium">New user registration</h6>
-                <p class="font-weight-light small-text">
-                  2 days ago
-                </p>
-              </div>
-            </a>
+              <a class="dropdown-item">
+                  <p class="mb-0 font-weight-normal float-left">Recently Re</p>
+                  
+              </a>
+              <div class="dropdown-divider"></div>
+      
+              <!-- Display the Last 5 Registered Students -->
+              @foreach($students as $student)
+                  <a class="dropdown-item preview-item">
+                      <div class="preview-thumbnail">
+                          <div class="preview-icon bg-success">
+                              <i class="fas fa-user mx-0"></i>
+                          </div>
+                      </div>
+                      <div class="preview-item-content">
+                          <h6 class="preview-subject font-weight-medium">{{ $student->student_name }}</h6>
+                          <p class="font-weight-light small-text">
+                              Registered recently
+                          </p>
+                      </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+              @endforeach
           </div>
-        </li>
+      </li>
+      
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-envelope mx-0"></i>

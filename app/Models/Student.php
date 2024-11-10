@@ -21,4 +21,19 @@ class Student extends Model
         'password',
         'role'
     ];
+
+    public function courses()
+{
+    return $this->belongsToMany(Course::class, 'enrollments');
+}
+
+
+    // Define the relationship with the Course model
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+
+
 }

@@ -229,6 +229,10 @@
                       
                           <div>
                             <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details </button>
+                            <button type="button" class="btn btn-success">Enroll to Courses</button>
+                                   <!-- Generate Report Button -->
+                        <button type="button" class="btn btn-info" onclick="generateReport()">Generate Report</button>
+                   
                               <!-- Delete student Button with Confirmation -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete student</button>
 
@@ -266,6 +270,10 @@
                 </div>
             </div>
         </div>
+
+
+
+        
         
         <!-- JavaScript to handle the edit button action -->
         <script>
@@ -273,6 +281,67 @@
                 // Redirect to the edit page for this student
                 window.location.href = '{{ route("student.edit", $student->id) }}'; // Adjust the route as necessary
             }
+
+
+            
+    function generateReport() {
+        // Get student details from the form
+        var studentDetails = `
+            <div class="report-container">
+                <h2 class="report-title">Student Report</h2>
+                <p><strong>Student Number:</strong> ${document.getElementById('registration_number').value}</p>
+                <p><strong>Student Name:</strong> ${document.getElementById('student_name').value}</p>
+                <p><strong>Student Level:</strong> ${document.getElementById('student_level').value}</p>
+                <p><strong>Student Phone:</strong> ${document.getElementById('phone').value}</p>
+                <p><strong>Date of Birth:</strong> ${document.getElementById('dob').value}</p>
+                <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+            </div>
+        `;
+        
+        // Create a new window for the print layout
+        var printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Student Report</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write(`
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .report-container {
+                padding: 20px;
+                background-color: #f4f4f4;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                width: 80%;
+                margin: 20px auto;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .report-title {
+                text-align: center;
+                font-size: 24px;
+                color: #2C3E50;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #333;
+            }
+            strong {
+                color: #2C3E50;
+            }
+        `);
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(studentDetails);
+        printWindow.document.write('</body></html>');
+
+        // Wait for the content to be fully loaded and then trigger the print dialog
+        printWindow.document.close();
+        printWindow.print();
+    }
+
         </script>
         
 

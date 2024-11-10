@@ -2,7 +2,8 @@
 
 
 namespace App\Http\Controllers;
-
+use App\Models\Enrollment;
+use App\Models\Course;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class StudentController extends Controller
     {
         //we can use this incase we dont have a pagination by default ----->$students = Student::pagination();
         $students = Student::all();
+        
         return view('backend.students.index',compact('students'));
         
 
@@ -100,13 +102,36 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-        $student = Student::findOrFail($id);
-        return view('backend.students.show',compact('student'));
+    // public function show($id)
+    // {
+    //     // Retrieve the student by ID
+    //     $student = Student::findOrFail($id);
+    
+    //     // Retrieve all courses
+    //     $courses = Course::all();
+    
+    //     // Return the view with the student and courses data
+    //     return view('backend.students.show', compact('student', 'courses'));
+    // }
 
+    public function show($id, $courseId = null)
+    {
+        // Retrieve the student by ID or fail
+        $student = Student::findOrFail($id);
+
+        // Retrieve all courses in the system
+        $courses = Course::all();
+
+        // Retrieve the specific course if a course ID is provided
+        $course = null;
+        if ($courseId) {
+            $course = Course::findOrFail($courseId);
+        }
+
+        // Pass the student, courses, and optionally the selected course to the view
+        return view('backend.students.show', compact('student', 'courses', 'course'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -176,5 +201,7 @@ class StudentController extends Controller
         // Redirect back to the students index page with a success message
         return redirect()->route('student.index');
     }
+
+    
    
 }

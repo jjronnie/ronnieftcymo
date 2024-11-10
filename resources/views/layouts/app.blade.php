@@ -42,7 +42,7 @@
 
         <!-- Page Content -->
         <main>
-            {{ $slot }}
+           
 
             <!-- Notifications -->
             @if (session('success'))

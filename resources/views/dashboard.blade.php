@@ -2,7 +2,10 @@
 @section('content')
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-   @include('backend.layouts.nav')
+   
+   <!-- Include the nav partial and pass the students data -->
+@include('backend.layouts.nav', ['students' => $students])
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
@@ -187,7 +190,8 @@
             </h3>
           </div>
           <div class="row grid-margin">
-            <div class="col-12">
+           
+            <div class="col-4">
               <div class="card card-statistics">
                 <div class="card-body">
                   <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
@@ -206,6 +210,20 @@
                         </h2>
                     </div>
                     
+                   
+                     
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                 
+                    
                     <div class="statistics-item">
                       <p>
                         <i class="icon-sm fas fa-book mr-2"></i>
@@ -214,6 +232,20 @@
                       </p>
                       <h2>{{ $totalCourses }}</h2>
                   </div>
+                  
+                    
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                  
+                   
                   
                       <div class="statistics-item">
                         <p>
@@ -234,34 +266,111 @@
 
             <div class="col-md-4 grid-margin stretch-card">
               <div class="card">
-                <div class="card-body d-flex flex-column">
-                  <h4 class="card-title">
-                    <i class="fas fa-chart-pie"></i>
-                    Sales status
-                  </h4>
-                  <div class="flex-grow-1 d-flex flex-column justify-content-between">
-                    <canvas id="sales-status-chart" class="mt-3"></canvas>
-                    <div class="pt-4">
-                      <div id="sales-status-chart-legend" class="sales-status-chart-legend"></div>
-                    </div>
+                  <div class="card-body d-flex flex-column">
+                      <h4 class="card-title">
+                          <i class="fas fa-chart-pie"></i>
+                          Total Students by Level
+                      </h4>
+                      <div class="flex-grow-1 d-flex flex-column justify-content-between">
+                          <canvas id="students-level-chart" width="400" height="400" class="mt-3"></canvas>
+                          <div class="pt-4">
+                              <div id="students-level-chart-legend" class="students-level-chart-legend"></div>
+                          </div>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
+          </div>
+          
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+              var studentsCountByLevel = @json($studentsCountByLevel);
+              console.log(studentsCountByLevel); // Debugging output
+          
+              var labels = studentsCountByLevel.map(function(item) {
+                  return item.student_level;
+              });
+              var data = studentsCountByLevel.map(function(item) {
+                  return item.total;
+              });
+          
+              console.log(labels);  // Debugging output
+              console.log(data);    // Debugging output
+          
+              var ctx = document.getElementById('students-level-chart').getContext('2d');
+              var studentsLevelChart = new Chart(ctx, {
+                  type: 'pie', // Type of chart (pie chart)
+                  data: {
+                      labels: labels, // Levels (e.g., S1, S2, etc.)
+                      datasets: [{
+                          data: data, // Student counts for each level
+                          backgroundColor: ['#ff7f7f', '#ffcc00', '#3b97d3', '#4bbd82', '#e4e4e4', '#d63384'], // Custom colors
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      plugins: {
+                          legend: {
+                              position: 'top',
+                          },
+                          tooltip: {
+                              callbacks: {
+                                  label: function(tooltipItem) {
+                                      return tooltipItem.label + ': ' + tooltipItem.raw + ' students';
+                                  }
+                              }
+                          }
+                      }
+                  }
+              });
+          </script>
+          
+          
+          <script>
+              // Get the student data passed from the controller
+              var studentsCountByLevel = @json($studentsCountByLevel);
+          
+              // Extract labels and data for the pie chart
+              var labels = studentsCountByLevel.map(function(item) {
+                  return item.student_level;
+              });
+              var data = studentsCountByLevel.map(function(item) {
+                  return item.total;
+              });
+          
+              // Create the pie chart
+              var ctx = document.getElementById('students-level-chart').getContext('2d');
+              var studentsLevelChart = new Chart(ctx, {
+                  type: 'pie', // Type of chart (pie chart)
+                  data: {
+                      labels: labels, // Levels (e.g., S1, S2, etc.)
+                      datasets: [{
+                          data: data, // Student counts for each level
+                          backgroundColor: ['#ff7f7f', '#ffcc00', '#3b97d3', '#4bbd82', '#e4e4e4', '#d63384'], // Custom colors
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      plugins: {
+                          legend: {
+                              position: 'top',
+                          },
+                          tooltip: {
+                              callbacks: {
+                                  label: function(tooltipItem) {
+                                      return tooltipItem.label + ': ' + tooltipItem.raw + ' students';
+                                  }
+                              }
+                          }
+                      }
+                  }
+              });
+          </script>
+          
 
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <i class="fas fa-gift"></i>
-                    Attendance
-                  </h4>
-                  <canvas id="orders-chart"></canvas>
-                  <div id="orders-chart-legend" class="orders-chart-legend"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin stretch-card">
+            
+            {{-- <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">
@@ -273,7 +382,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
+
+         
+        
 
         </div>
         <!-- content-wrapper ends -->

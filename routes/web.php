@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController;
 
 
 use App\Http\Controllers\DashboardController;
@@ -46,6 +47,7 @@ Route::put('/{id}/update-student',[StudentController::class, 'update'])->name('s
 Route::delete('/{id}/show-student', [StudentController::class, 'destroy'])->name('delete-student');
 
 
+
     //Courses Routes
     Route::get('/create-course', [CourseController::class, 'create'])->name('course.create');
     Route::post('/store-course', [CourseController::class, 'store'])->name('course.store');
@@ -54,6 +56,13 @@ Route::delete('/{id}/show-student', [StudentController::class, 'destroy'])->name
     Route::get('/{id}/edit', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/{id}/update', [CourseController::class, 'update'])->name('course.update');
     Route::delete('/{id}/destroy', [CourseController::class, 'destroy'])->name('course.destroy');
+
+
+
+    //enrollments 
+    Route::get('/students/{student}/enroll', [EnrollmentController::class, 'showEnrollmentForm'])->name('students.enroll');
+Route::post('/students/{student}/enroll', [EnrollmentController::class, 'enrollStudent'])->name('students.enroll.store');
+
    
     
     
