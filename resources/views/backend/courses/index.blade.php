@@ -81,7 +81,7 @@
                                             <div class="popover-body">
                                                 <p><strong>Course ID:</strong> {{ $course->course_id }}</p>
                                                 <p><strong>Course Name:</strong> {{ $course->course_name }}</p>
-                                                <p><strong>Enrolled Students:</strong> </p>
+                                                <p><strong>Enrolled Students:</strong> {{ $course->students()->count() }}</p>
                                                 
                                                 <!-- View Course button -->
                                                 <a href="{{ route('courses.show', $course->id) }}" class="btn btn-success btn-sm">View Course</a>

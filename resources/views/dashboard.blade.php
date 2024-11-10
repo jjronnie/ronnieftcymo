@@ -264,7 +264,7 @@
           </div>
           <div class="row">
 
-            <div class="col-md-4 grid-margin stretch-card">
+            <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body d-flex flex-column">
                       <h4 class="card-title">
@@ -346,7 +346,7 @@
                       labels: labels, // Levels (e.g., S1, S2, etc.)
                       datasets: [{
                           data: data, // Student counts for each level
-                          backgroundColor: ['#ff7f7f', '#ffcc00', '#3b97d3', '#4bbd82', '#e4e4e4', '#d63384'], // Custom colors
+                          backgroundColor: ['#ff7f7f', '#ffcc00', '#3b97d3', '#4bbd82', '#e4e4e4', '#0C3E9A'], // Custom colors
                           borderWidth: 1
                       }]
                   },

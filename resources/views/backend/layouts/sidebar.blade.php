@@ -28,6 +28,20 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
+          <i class="fas fa-pen-square menu-icon"></i>
+          <span class="menu-title">Admin</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="editors">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link" href="#">Add New Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">View Admins</a></li>
+          </ul>
+        </div>
+      </li>
+
 
 
       <li class="nav-item">
@@ -60,7 +74,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="far fa-compass menu-icon"></i>
           <span class="menu-title">Enrollments</span>
@@ -76,7 +90,9 @@
           
           </ul>
           </div>
-      </li>
+      </li> --}}
+
+    
 
 
   </nav>

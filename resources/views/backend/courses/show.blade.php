@@ -76,11 +76,16 @@
                   <label for="credit_hours">Credit Hours</label>
                   <p>{{ $course->credit_hours }}</p>
                 </div>
+                <div class="form-group">
+                  <label for="total_enrollments">Total Enrollments</label>
+                  <p>{{ $course->students()->count() }}</p>
+                </div>
 
                 <div class="form-group">
                   <label for="description">Course Description</label>
                   <p>{{ $course->description }}</p>
                 </div>
+
 
                 <a href="{{ route('course.edit', $course->id) }}" class="btn btn-warning">Edit Course</a>
                 

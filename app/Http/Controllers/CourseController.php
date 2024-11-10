@@ -17,6 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all(); // Retrieves all courses from the database
+        
         return view('backend.courses.index', compact('courses')); // Passes $courses to the view
     }
     
@@ -87,6 +88,7 @@ class CourseController extends Controller
     {
         // Retrieve the course by its ID
         $course = Course::findOrFail($id);
+        $course->load('students'); 
     
         // Return the view with the course details
         return view('backend.courses.show', compact('course'));

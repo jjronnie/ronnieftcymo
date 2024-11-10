@@ -42,6 +42,25 @@
   <script src="{{asset('js/dashboard.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+  <script>
+    // JavaScript to update the time every second
+    function updateTime() {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const now = new Date().toLocaleString('en-US', options);
+        document.getElementById('currentTime').innerText = now;
+    }
+
+    // Update time every second
+    setInterval(updateTime, 1000);
+
+    // Call once to avoid delay
+    updateTime();
+
+   
+        
+</script>
+
   <!-- End custom js for this page-->
 </body>
 

@@ -18,10 +18,9 @@ class Course extends Model
 
 
 
-  // Define the inverse relationship with the Student model
-  public function students()
-  {
-      return $this->hasMany(Student::class);
-  }
+    public function students()
+{
+    return $this->belongsToMany(Student::class);
+}
 
 }

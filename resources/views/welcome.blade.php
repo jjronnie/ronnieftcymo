@@ -40,6 +40,10 @@
 
         <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to ELITES ACADEMY</h2>
         <p class="text-gray-600 text-lg mb-8">Empowering students with quality education and modern learning facilities.</p>
+        <h2 class="text-gray-600 text-lg mb-8">
+            <div id="currentTime">
+            {{ \Carbon\Carbon::now()->format('l, F j, Y - h:i:s A') }}
+        </div></h2>
         <a href="{{ route('dashboard') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded">
             Dashboard
         </a>
@@ -50,5 +54,20 @@
             <p>&copy; {{ date('Y') }} ELITES ACADEMY. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript to update the time every second
+        function updateTime() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            const now = new Date().toLocaleString('en-US', options);
+            document.getElementById('currentTime').innerText = now;
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+
+        // Call once to avoid delay
+        updateTime();
+    </script>
 </body>
 </html>

@@ -202,6 +202,30 @@ class StudentController extends Controller
         return redirect()->route('student.index');
     }
 
+  // EnrollmentController.php
+public function enroll($studentId, $courseId)
+{
+    $student = Student::find($studentId);
+    $course = Course::find($courseId);
+
+    if (!$student || !$course) {
+        return response()->json(['success' => false, 'message' => 'Student or course not found.']);
+    }
+
+    // Check if the student is already enrolled in the course
+    if ($student->courses()->where('course_id', $courseId)->exists()) {
+        return response()->json(['success' => false, 'message' => 'Already enrolled in this course.']);
+    }
+
+    // Enroll the student in the course
+    $student->courses()->attach($courseId);
+    Log::info('Student ID: ' . $studentId . ' - Course ID: ' . $courseId);
+
+
+    return response()->json(['success' => true, 'message' => 'Enrollment successful!']);
+}
+
+    
     
    
 }

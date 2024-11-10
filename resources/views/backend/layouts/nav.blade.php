@@ -20,8 +20,11 @@
               <input type="text" class="form-control" placeholder="Search" aria-label="Search">
             </div>
           </div> --}}
+          <div id="currentTime">
+            Today is: 
 
-          <marquee behavior="" direction="left">ELITE ACADEMY E-STUDENT MANAGEMENT PLATFORM</marquee>
+          {{ \Carbon\Carbon::now()->format('l F j, Y - h:i:s A') }}
+          </div>
         </li>
       </ul>
       <ul class="navbar-nav navbar-nav-right">
@@ -59,7 +62,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <a class="dropdown-item">
-                  <p class="mb-0 font-weight-normal float-left">Recently Re</p>
+                  <p class="mb-0 font-weight-normal float-left">Recently Registered Students</p>
                   
               </a>
               <div class="dropdown-divider"></div>

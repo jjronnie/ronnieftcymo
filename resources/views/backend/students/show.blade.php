@@ -1,292 +1,138 @@
 @extends('backend.layouts.main')
 @section('content')
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-   @include('backend.layouts.nav')
-    <!-- partial -->
+    @include('backend.layouts.nav')
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
-      <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close fa fa-times"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles primary"></div>
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default"></div>
-          </div>
-        </div>
-      </div>
-      <div id="right-sidebar" class="settings-panel">
-        <i class="settings-close fa fa-times"></i>
-        <ul class="nav nav-tabs" id="setting-panel" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="setting-content">
-          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-            <div class="add-items d-flex px-3 mb-0">
-              <form class="form w-100">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task-todo">Add</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-wrapper px-3">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Team review meeting at 3.00 PM
-                    </label>
-                  </div>
-                  <i class="remove fa fa-times-circle"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Prepare for presentation
-                    </label>
-                  </div>
-                  <i class="remove fa fa-times-circle"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Resolve all the low priority tickets due today
-                    </label>
-                  </div>
-                  <i class="remove fa fa-times-circle"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Schedule meeting for next week
-                    </label>
-                  </div>
-                  <i class="remove fa fa-times-circle"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Project review
-                    </label>
-                  </div>
-                  <i class="remove fa fa-times-circle"></i>
-                </li>
-              </ul>
-            </div>
-            <div class="events py-4 border-bottom px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="fa fa-times-circle text-primary mr-2"></i>
-                <span>Feb 11 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Creating component page</p>
-              <p class="text-gray mb-0">build a js based app</p>
-            </div>
-            <div class="events pt-4 px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="fa fa-times-circle text-primary mr-2"></i>
-                <span>Feb 7 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-              <p class="text-gray mb-0 ">Call Sarah Graves</p>
-            </div>
-          </div>
-          <!-- To do section tab ends -->
-          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
-            <div class="d-flex align-items-center justify-content-between border-bottom">
-              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
-            </div>
-            <ul class="chat-list">
-              <li class="list active">
-                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Thomas Douglas</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">19 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <div class="wrapper d-flex">
-                    <p>Catherine</p>
-                  </div>
-                  <p>Away</p>
-                </div>
-                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                <small class="text-muted my-auto">23 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Daniel Russell</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">14 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <p>James Richardson</p>
-                  <p>Away</p>
-                </div>
-                <small class="text-muted my-auto">2 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Madeline Kennedy</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">5 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Sarah Graves</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">47 min</small>
-              </li>
-            </ul>
-          </div>
-          <!-- chat tab ends -->
-        </div>
-      </div>
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-
       @include('backend.layouts.sidebar')
-      <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title">
-              Dashboard
-            </h3>
+            <h3 class="page-title">Dashboard</h3>
           </div>
-
 
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">View Student Details</h4>
-                        <p class="card-description">Here you can view the details of the student.</p>
-                        <form class="forms-sample" action="" method="POST">
-                          @csrf
-                          <!-- Student Registration Number -->
-                          <div class="form-group">
-                              <label for="registration_number">Student Number</label>
-                              <input type="text" class="form-control" id="registration_number" value="{{ $student->registration_number }}" readonly>
-                          </div>
-                          <!-- Student Name -->
-                          <div class="form-group">
-                              <label for="student_name">Student Name</label>
-                              <input type="text" class="form-control" id="student_name" value="{{ $student->student_name }}" readonly>
-                          </div>
-                          <!-- Student Level -->
-                          <div class="form-group">
-                              <label for="student_level">Student Level</label>
-                              <input type="text" class="form-control" id="student_level" value="{{ $student->student_level }}" readonly>
-                          </div>
-                          <!-- Student Phone -->
-                          <div class="form-group">
-                              <label for="phone">Student Phone</label>
-                              <input type="text" class="form-control" id="phone" value="{{ $student->phone }}" readonly>
-                          </div>
-                          <!-- Student Date of Birth -->
-                          <div class="form-group">
-                              <label for="dob">Date of Birth</label>
-                              <input type="text" class="form-control" id="dob" value="{{ $student->dob }}" readonly>
-                          </div>
-                          <!-- Student Email -->
-                          <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="text" class="form-control" id="email" value="{{ $student->email }}" readonly>
-                          </div>
-                      
-                          <div>
-                            <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details </button>
-                            <button type="button" class="btn btn-success">Enroll to Courses</button>
-                                   <!-- Generate Report Button -->
-                        <button type="button" class="btn btn-info" onclick="generateReport()">Generate Report</button>
-                   
-                              <!-- Delete student Button with Confirmation -->
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete student</button>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">View Student Details</h4>
+                  <p class="card-description">Here you can view the details of the student.</p>
 
-                <!-- Delete Confirmation Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Delete student</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        Are you sure you want to delete the student {{ $student->student_name }}? This action cannot be undone.
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <form action="{{ route('delete-student', $student->id) }}" method="POST" class="d-inline">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                  <form class="forms-sample" action="" method="POST">
+                    @csrf
+                    <!-- Student Details -->
+                    <div class="form-group">
+                      <label for="registration_number">Student Number</label>
+                      <input type="text" class="form-control" id="registration_number" value="{{ $student->registration_number }}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="student_name">Student Name</label>
+                      <input type="text" class="form-control" id="student_name" value="{{ $student->student_name }}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="student_level">Student Level</label>
+                      <input type="text" class="form-control" id="student_level" value="{{ $student->student_level }}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Student Phone</label>
+                      <input type="text" class="form-control" id="phone" value="{{ $student->phone }}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="dob">Date of Birth</label>
+                      <input type="text" class="form-control" id="dob" value="{{ $student->dob }}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control" id="email" value="{{ $student->email }}" readonly>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div>
+                      <button type="button" class="btn btn-primary" onclick="editStudent()">Edit Student Details</button>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#enrollModal">Enroll to Courses</button>
+                      <button type="button" class="btn btn-info" onclick="generateReport()">Generate Report</button>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete Student</button>
+                    </div>
+                  </form>
+
+                  <!-- Enroll to Courses Modal -->
+                  <div class="modal fade" id="enrollModal" tabindex="-1" role="dialog" aria-labelledby="enrollModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="enrollModalLabel">Enroll in Courses</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group">
+                            @foreach($courses as $course)
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ $course->course_name }}
+                                <button 
+                                  type="button" 
+                                  class="btn btn-success btn-sm enroll-btn" 
+                                  data-course-id="{{ $course->id }}" 
+                                  data-student-id="{{ $student->id }}"
+                                  id="enroll-btn-{{ $course->id }}"
+                                  {{ $student->courses->contains($course->id) ? 'disabled' : '' }}
+                                >
+                                  {{ $student->courses->contains($course->id) ? 'Enrolled' : 'Enroll' }}
+                                </button>
+                              </li>
+                            @endforeach
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                             
-                              <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('student.index') }}'">Back</button>
-                                
-                          </div>
-                      </form>
-                      
+
+                  <!-- Delete Confirmation Modal -->
+                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Delete Student</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this student?
+                        </div>
+                        <div class="modal-footer">
+                          <form action="{{ route('delete-student', $student->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+        @include('backend.layouts.footer')
+      </div>
+    </div>
+  </div>
+  @endsection
 
+<script>
+    function editStudent() {
+        window.location.href = '{{ route("student.edit", $student->id) }}';
+    }
 
-
-        
-        
-        <!-- JavaScript to handle the edit button action -->
-        <script>
-            function editStudent() {
-                // Redirect to the edit page for this student
-                window.location.href = '{{ route("student.edit", $student->id) }}'; // Adjust the route as necessary
-            }
-
-
-            
     function generateReport() {
-        // Get student details from the form
-        var studentDetails = `
+        const studentDetails = `
             <div class="report-container">
                 <h2 class="report-title">Student Report</h2>
                 <p><strong>Student Number:</strong> ${document.getElementById('registration_number').value}</p>
@@ -298,68 +144,44 @@
             </div>
         `;
         
-        // Create a new window for the print layout
-        var printWindow = window.open('', '', 'height=600,width=800');
+        const printWindow = window.open('', '', 'height=600,width=800');
         printWindow.document.write('<html><head><title>Student Report</title>');
-        printWindow.document.write('<style>');
-        printWindow.document.write(`
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .report-container {
-                padding: 20px;
-                background-color: #f4f4f4;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                width: 80%;
-                margin: 20px auto;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-            .report-title {
-                text-align: center;
-                font-size: 24px;
-                color: #2C3E50;
-                margin-bottom: 20px;
-            }
-            p {
-                font-size: 16px;
-                line-height: 1.6;
-                color: #333;
-            }
-            strong {
-                color: #2C3E50;
-            }
-        `);
-        printWindow.document.write('</style>');
+        printWindow.document.write('<style>body { font-family: Arial, sans-serif; padding: 20px; }</style>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(studentDetails);
         printWindow.document.write('</body></html>');
-
-        // Wait for the content to be fully loaded and then trigger the print dialog
         printWindow.document.close();
         printWindow.print();
     }
 
-        </script>
-        
+    document.querySelectorAll('.enroll-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const courseId = this.dataset.courseId;
+            const studentId = this.dataset.studentId;
+            const buttonId = this.id;
 
-
-
-
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        @include('backend.layouts.footer')
-
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  @endsection
-
-
+            // Fix the URL to properly interpolate studentId and courseId
+            fetch(`/enroll/${studentId}/${courseId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById(buttonId).textContent = 'Enrolled';
+                    document.getElementById(buttonId).disabled = true;
+                    alert(data.message);
+                } else {
+                    alert(data.message || 'Enrollment failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Enrollment failed. Please try again.');
+            });
+        });
+    });
+</script>
