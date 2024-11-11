@@ -36,8 +36,8 @@
         </a>
         <div class="collapse" id="editors">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="#">Add New Admin</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">View Admins</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.create')}}">Add New Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}">View Admins</a></li>
           </ul>
         </div>
       </li>

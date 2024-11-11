@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <!-- Replace with your custom logo -->
@@ -74,4 +74,45 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELITES ACADEMY - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold text-blue-600 text-center" id="system-name">ELITES ACADEMY STUDENT MANAGEMENT SYSTEM</h1>
+            <div class="flex space-x-4">
+                <!-- Show only to guests (not logged-in users) -->
+                @guest
+                    <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded">Login</a>
+               @endguest
+               
+
+              
+            </div>
+        </div>
+    </header>
+    <body class="bg-gray-100 flex flex-col min-h-screen">
+    <main class="flex-grow flex flex-col justify-center items-center text-center px-6">
+        <!-- Logo Section -->
+        <div class="mb-6">
+            <img src="{{ asset('images/elite.png') }}" alt="ELITES ACADEMY Logo" class="h-32 w-auto mx-auto">
+        </div>
+
+
+<h2 class="text-4xl font-bold text-gray-800 mb-4">NOT ALLOWED</h2>
+<p class="text-gray-600 text-lg mb-8">Please Contact Elite Administration to be registered to the system.</p>
+    </main>
+<footer class="bg-gray-800 text-white py-6 mt-auto">
+    <div class="container mx-auto text-center">
+        <p>&copy; {{ date('Y') }} ELITES ACADEMY. All rights reserved.</p>
+    </div>
+</footer>
+</body>

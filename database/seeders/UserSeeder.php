@@ -19,12 +19,14 @@ class UserSeeder extends Seeder
             'name'=> 'JRonnie',
             'email'=> 'ronaldjjuuko7@gmail.com',
             'password'=>bcrypt('88928892'),
+            'is_admin'=>'1'
            
         ]);
         User:: create([
-            'name'=> 'Isaac',
+            'name'=> 'Kclich',
             'email'=> 'kclich@hotmail.com',
             'password'=>bcrypt('88928892'),
+            'is_admin'=>'1'
            
         ]);
     }
