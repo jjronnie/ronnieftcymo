@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->date('dob');
             $table->string('registration_number')->unique();
             $table->string('email')->unique();
-    
+              
             $table->timestamps();
         });
     }

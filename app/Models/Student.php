@@ -22,16 +22,16 @@ class Student extends Model
         
     ];
 
-    public function courses()
-    {
-        
-    }
-
     public function level()
     {
-        
+        return $this->belongsTo(Level::class);
     }
 
+    
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments');
+    }
     
 
 
