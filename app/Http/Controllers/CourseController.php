@@ -87,8 +87,7 @@ class CourseController extends Controller
     public function show($id)
     {
         // Retrieve the course by its ID
-        $course = Course::findOrFail($id);
-     
+        $course = Course::findOrFail($id);    
     
         // Return the view with the course details
         return view('backend.courses.show', compact('course'));

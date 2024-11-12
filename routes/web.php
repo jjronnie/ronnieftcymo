@@ -47,16 +47,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/{id}/show', [CourseController::class, 'show'])->name('courses.show');
     Route::get('/{id}/edit', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/{id}/update', [CourseController::class, 'update'])->name('course.update');
-    Route::delete('/{id}/destroy', [CourseController::class, 'destroy'])->name('course.destroy');
-
+    Route::delete('/{id}/destroy', [CourseController::class, 'destroy'])->name('course.destroy'); 
     
-    
+    //Enrollment
     Route::post('/enroll/{student_id}/{course_id}', [StudentController::class, 'enroll'])->name('enroll');
     
 
-    //admin  
-   
-
+    //admin Routes 
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');

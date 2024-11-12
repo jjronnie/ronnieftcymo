@@ -19,7 +19,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //we can use this incase we dont have a pagination by default ----->$students = Student::pagination();
+       
         $students = Student::all();
         
         return view('backend.students.index',compact('students'));
@@ -65,7 +65,7 @@ class StudentController extends Controller
             // Set the registration number based on the last student, starting from 1000
             if ($lastStudent) {
                 $lastRegistrationNumber = (int) substr($lastStudent->registration_number, -4); // Get the last 4 digits
-                $newRegistrationNumber = '22/U/' . ($lastRegistrationNumber + 1); // Replace '22' with current year if needed
+                $newRegistrationNumber = '22/U/' . ($lastRegistrationNumber + 1); 
             } else {
                 $newRegistrationNumber = '22/U/1000';
             }

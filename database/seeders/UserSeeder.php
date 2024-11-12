@@ -13,8 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //call the model then the create function
-        //associative array
+        //Seeded admins
         User:: create([
             'id' =>'501',
             'name'=> 'Ronnie',

@@ -33,8 +33,8 @@ class DashboardController extends Controller
             ->groupBy('student_level')
             ->get();
 
-              // Fetch student registrations grouped by month
-    $monthlyRegistrations = Student::selectRaw("COUNT(*) as count, DATE_FORMAT(created_at, '%Y-%m') as month")
+        // Fetch student registrations grouped by month
+        $monthlyRegistrations = Student::selectRaw("COUNT(*) as count, DATE_FORMAT(created_at, '%Y-%m') as month")
     ->groupBy('month')
     ->orderBy('month', 'asc')
     ->get();

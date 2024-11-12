@@ -28,7 +28,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8', // Removed password confirmation validation
+            'password' => 'required|string|min:8', 
         ]);
     
         try {
