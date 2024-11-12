@@ -102,17 +102,7 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-    //     // Retrieve the student by ID
-    //     $student = Student::findOrFail($id);
-    
-    //     // Retrieve all courses
-    //     $courses = Course::all();
-    
-    //     // Return the view with the student and courses data
-    //     return view('backend.students.show', compact('student', 'courses'));
-    // }
+
 
     public function show($id, $courseId = null)
     {

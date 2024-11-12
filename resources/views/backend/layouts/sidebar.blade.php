@@ -7,7 +7,7 @@
                 <img src="{{ asset('storage/' . Auth::user()->profile_photo_path) }}" alt="Profile Image"/>
             @else
                 <!-- Default image if no profile picture was uploaded -->
-                <img src="{{ asset('images/faces/full.png') }}" alt="Default Profile Image"/>
+                <img src="{{ asset('images/elite/profileuser.png') }}" alt="Default Profile Image"/>
             @endif
         </div>
         
@@ -30,7 +30,8 @@
 
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
-          <i class="fas fa-pen-square menu-icon"></i>
+          <i class="fas fa-user-shield menu-icon"></i>
+
           <span class="menu-title">Admin</span>
           <i class="menu-arrow"></i>
         </a>

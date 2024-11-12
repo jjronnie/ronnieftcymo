@@ -19,8 +19,8 @@
                   <form id="adminForm" class="forms-sample" action="{{ route('admin.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" class="form-control" name="name" placeholder="Enter Admin Name" required>
+                      <label for="name">User Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Enter UserName Name" required>
                     </div>
                     <div class="form-group">
                       <label for="email">Email</label>

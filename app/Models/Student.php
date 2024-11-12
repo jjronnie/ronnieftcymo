@@ -18,13 +18,18 @@ class Student extends Model
         'dob', 
         'registration_number', 
         'email', 
-        'password',
-        'role'
+        
+        
     ];
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class);
+        
+    }
+
+    public function level()
+    {
+        
     }
 
     

@@ -282,7 +282,7 @@
           </div>
           
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <script>
+          {{-- <script>
               var studentsCountByLevel = @json($studentsCountByLevel);
               console.log(studentsCountByLevel); // Debugging output
           
@@ -324,7 +324,7 @@
                   }
               });
           </script>
-          
+           --}}
           
           <script>
               // Get the student data passed from the controller
@@ -367,22 +367,65 @@
                   }
               });
           </script>
+
+          <script>
+             document.addEventListener('DOMContentLoaded', function() {
+                // Prepare the data from PHP variables
+                const labels = @json($monthlyRegistrations->pluck('month'));
+                const counts = @json($monthlyRegistrations->pluck('count'));
+
+                // Initialize Chart.js
+                const ctx = document.getElementById('registrations-chart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line', // Use 'bar' if you prefer a bar chart
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Registered Students',
+                            data: counts,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            fill: true,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Month'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Number of Registrations'
+                                },
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+          </script>
+          
           
 
             
-            {{-- <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <i class="fas fa-chart-line"></i>
-                    Performance
-                  </h4>
-                  <h2 class="mb-5">56000 <span class="text-muted h4 font-weight-normal">Sales</span></h2>
-                  <canvas id="sales-chart"></canvas>
-                </div>
+          <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <i class="fas fa-chart-line"></i>
+                  Monthly Registrations
+                </h4>
+                <canvas id="registrations-chart"></canvas>
               </div>
             </div>
-          </div> --}}
+          </div>
+        
 
          
         

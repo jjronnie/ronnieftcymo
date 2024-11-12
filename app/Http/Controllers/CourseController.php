@@ -88,7 +88,7 @@ class CourseController extends Controller
     {
         // Retrieve the course by its ID
         $course = Course::findOrFail($id);
-        $course->load('students'); 
+     
     
         // Return the view with the course details
         return view('backend.courses.show', compact('course'));

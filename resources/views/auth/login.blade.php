@@ -2,7 +2,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <!-- Custom Logo -->
-            <img src="{{ asset('images/elite.png') }}" alt="Elites Academy Logo" class="w-20 h-20 mx-auto mb-4">
+            <img src="{{ asset('images/elite/logo-mini.png') }}" alt="Elites Academy Logo" class="w-20 h-20 mx-auto mb-4">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

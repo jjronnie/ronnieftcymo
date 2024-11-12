@@ -16,15 +16,17 @@ class UserSeeder extends Seeder
         //call the model then the create function
         //associative array
         User:: create([
-            'name'=> 'JRonnie',
+            'id' =>'501',
+            'name'=> 'Ronnie',
             'email'=> 'ronaldjjuuko7@gmail.com',
             'password'=>bcrypt('88928892'),
             'is_admin'=>'1'
            
         ]);
         User:: create([
-            'name'=> 'Kclich',
-            'email'=> 'kclich@hotmail.com',
+            'id' =>'500',
+            'name'=> 'Cymon',
+            'email'=> 'cymoncyk@gmail.com',
             'password'=>bcrypt('88928892'),
             'is_admin'=>'1'
            

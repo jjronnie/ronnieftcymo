@@ -214,11 +214,9 @@
                                   <option value="Level One">Level One</option>
                                   <option value="Level Two">Level Two</option>
                                   <option value="Level Three">Level Three</option>
-                                  <option value="Level Four">Level Four</option>
-                                 
+                                  <option value="Level Four">Level Four</option>                                 
                               </select>
-                          </div>
-                      
+                          </div>                    
                          
                       
                           <div class="form-group">
@@ -232,7 +230,7 @@
                           </div>
                       
                           <button type="submit" class="btn btn-primary mr-2">Register</button>
-                          <button type="button" class="btn btn-light" onclick="resetForm()">Cancel</button>
+                          <button type="button" class="btn btn-light" onclick="resetForm()">Clear</button>
                       </form>
                       
                     </div>
@@ -243,50 +241,65 @@
         <!-- jQuery and AJAX Script -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script>
-            $(document).ready(function() {
-                $('#registerForm').on('submit', function(event) {
-                    event.preventDefault(); // Prevent the default form submission
-        
-                    // Get the form data
-                    var formData = $(this).serialize();
-        
-                    $.ajax({
-                        type: 'POST',
-                        url: $(this).attr('action'), // Use the form action URL
-                        data: formData,
-                        success: function(response) {
-                            // Show success notification
-                            $('#notification').html('<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                                response.success +
-                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                                '<span aria-hidden="true">&times;</span>' +
-                                '</button></div>');
-        
-                            // Optionally, reset the form fields after success
-                            $('#registerForm')[0].reset();
-                        },
-                        error: function(xhr) {
-                            // Show error notifications
-                            var errors = xhr.responseJSON.errors;
-                            var errorMessage = '';
-                            for (var error in errors) {
-                                errorMessage += errors[error][0] + '<br>'; // Concatenate error messages
-                            }
-                            $('#notification').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-                                errorMessage +
-                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                                '<span aria-hidden="true">&times;</span>' +
-                                '</button></div>');
-                        }
-                    });
-                });
-            });
-        
-            function resetForm() {
-                $('#registerForm')[0].reset(); // Reset form fields
-                $('#notification').html(''); // Clear notifications
-            }
-        </script>
+          $(document).ready(function() {
+              $('#registerForm').on('submit', function(event) {
+                  event.preventDefault(); // Prevent the default form submission
+      
+                  // Get the form data
+                  var formData = $(this).serialize();
+      
+                  $.ajax({
+                      type: 'POST',
+                      url: $(this).attr('action'), // Use the form action URL
+                      data: formData,
+                      success: function(response) {
+                          // Show success notification
+                          $('#notification').html('<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                              response.success +
+                              '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                              '<span aria-hidden="true">&times;</span>' +
+                              '</button></div>');
+      
+                          // Reset the form fields after success
+                          $('#registerForm')[0].reset();
+      
+                          // Hide notification after 5 seconds
+                          setTimeout(function() {
+                              $('#notification .alert').fadeOut('slow', function() {
+                                  $(this).remove(); // Remove the element from the DOM
+                              });
+                          }, 5000);
+                      },
+                      error: function(xhr) {
+                          // Show error notifications
+                          var errors = xhr.responseJSON.errors;
+                          var errorMessage = '';
+                          for (var error in errors) {
+                              errorMessage += errors[error][0] + '<br>'; // Concatenate error messages
+                          }
+                          $('#notification').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                              errorMessage +
+                              '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                              '<span aria-hidden="true">&times;</span>' +
+                              '</button></div>');
+      
+                          // Hide notification after 5 seconds
+                          setTimeout(function() {
+                              $('#notification .alert').fadeOut('slow', function() {
+                                  $(this).remove(); // Remove the element from the DOM
+                              });
+                          }, 5000);
+                      }
+                  });
+              });
+          });
+      
+          function resetForm() {
+              $('#registerForm')[0].reset(); // Reset form fields
+              $('#notification').html(''); // Clear notifications
+          }
+      </script>
+      
         
 
 

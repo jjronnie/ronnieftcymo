@@ -10,11 +10,11 @@
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-blue-600 text-center" id="system-name">ELITES ACADEMY STUDENT MANAGEMENT SYSTEM</h1>
-            <div class="flex space-x-4">
+            {{-- <div class="flex space-x-4">
                 <!-- Show only to guests (not logged-in users) -->
                 @guest
                     <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded">Login</a>
-                    <a href="{{ route('register') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded">Register</a>
+                   
                 @endguest
 
                 <!-- Show only to authenticated (logged-in) users -->
@@ -28,25 +28,39 @@
                         @csrf
                     </form>
                 @endauth
-            </div>
+            </div> --}}
         </div>
     </header>
 
     <main class="flex-grow flex flex-col justify-center items-center text-center px-6">
         <!-- Logo Section -->
         <div class="mb-6">
-            <img src="{{ asset('images/elite.png') }}" alt="ELITES ACADEMY Logo" class="h-32 w-auto mx-auto">
+            <img src="{{ asset('images/elite/logo2.png') }}" alt="ELITES ACADEMY Logo" class="h-32 w-auto mx-auto">
         </div>
 
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to ELITES ACADEMY</h2>
+       
         <p class="text-gray-600 text-lg mb-8">Empowering students with quality education and modern learning facilities.</p>
         <h2 class="text-gray-600 text-lg mb-8">
             <div id="currentTime">
             {{ \Carbon\Carbon::now()->format('l, F j, Y - h:i:s A') }}
         </div></h2>
-        <a href="{{ route('dashboard') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded">
-            Dashboard
-        </a>
+        <div class="flex space-x-4">
+            <!-- Show only to guests (not logged-in users) -->
+            @guest
+                <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded">Login</a>
+               
+            @endguest
+
+            <!-- Show only to authenticated (logged-in) users -->
+            @auth
+                <a href="{{ route('dashboard') }}" 
+                   
+                   class="bg-blue-600 hover:bg-green-700 text-white font-medium px-4 py-2 rounded">
+                   Dashboard
+                </a>
+                
+            @endauth
+        </div>
     </main>
 
     <footer class="bg-gray-800 text-white py-6 mt-auto">

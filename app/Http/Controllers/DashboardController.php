@@ -32,9 +32,15 @@ class DashboardController extends Controller
         $studentsCountByLevel = Student::select('student_level', DB::raw('count(*) as total'))
             ->groupBy('student_level')
             ->get();
+
+              // Fetch student registrations grouped by month
+    $monthlyRegistrations = Student::selectRaw("COUNT(*) as count, DATE_FORMAT(created_at, '%Y-%m') as month")
+    ->groupBy('month')
+    ->orderBy('month', 'asc')
+    ->get();
     
         // Pass the values to the view
-        return view('dashboard', compact('totalStudents', 'totalCourses', 'students', 'studentsCountByLevel'));
+        return view('dashboard', compact('totalStudents', 'totalCourses', 'students', 'studentsCountByLevel','monthlyRegistrations'));
     }
     
 

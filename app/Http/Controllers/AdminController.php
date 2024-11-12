@@ -58,27 +58,29 @@ class AdminController extends Controller
         return view('backend.admins.edit', compact('admin'));
     }
 
-    // Update the specified admin in the database
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'nullable|string|min:8|confirmed',
-        ]);
+// Update the specified admin in the database
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $id,
+    ]);
 
-        $admin = User::findOrFail($id);
-        $admin->name = $validated['name'];
-        $admin->email = $validated['email'];
+    $admin = User::findOrFail($id);
+    $admin->name = $validated['name'];
+    $admin->email = $validated['email'];
 
-        if ($validated['password']) {
-            $admin->password = Hash::make($validated['password']);
-        }
+    $admin->save();
 
-        $admin->save();
-
-        return redirect()->route('admins.index')->with('success', 'Admin updated successfully');
+    // Check if the request is AJAX
+    if ($request->ajax()) {
+        return response()->json(['success' => 'Admin updated successfully.']);
     }
+
+    // For non-AJAX request, redirect with a success message
+    return redirect()->route('admin.index')->with('success', 'Admin updated successfully');
+}
+
 
     // Delete the specified admin from the database
     public function destroy($id)

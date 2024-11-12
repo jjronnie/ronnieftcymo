@@ -25,7 +25,7 @@
                       <input type="text" class="form-control" id="admin_id" value="{{ $admin->id }}" readonly>
                     </div>
                     <div class="form-group">
-                      <label for="admin_name">Admin Name</label>
+                      <label for="admin_name">Admin UserName</label>
                       <input type="text" class="form-control" id="admin_name" value="{{ $admin->name }}" readonly>
                     </div>
                  

@@ -1,8 +1,8 @@
 
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo" href="{{ route('welcome') }}"><img src="{{asset('images/elite.png')}}" alt="logo"/></a>
-      <a class="navbar-brand brand-logo-mini" href="{{ route('welcome') }}"><img src="{{asset('images/logo-mini.svg')}}" alt="logo"/></a>
+      <a class="navbar-brand brand-logo" href="{{ route('welcome') }}"><img src="{{asset('images/elite/logo2.png')}}" alt="logo"/></a>
+      <a class="navbar-brand brand-logo-mini" href="{{ route('welcome') }}"><img src="{{asset('images/elite/logo-mini.png')}}" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
       <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -58,7 +58,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="fas fa-bell mx-0"></i>
-              <span class="count">16</span>
+              <span class="count">5</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <a class="dropdown-item">
@@ -87,7 +87,7 @@
           </div>
       </li>
       
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
           <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-envelope mx-0"></i>
             <span class="count">25</span>
@@ -141,14 +141,14 @@
               </div>
             </a>
           </div>
-        </li>
+        </li> --}}
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
             @if (Auth::user()->profile_photo_path)
             <img src="{{ asset('storage/' . Auth::user()->profile_photo_path) }}" alt="Profile Image"/>
         @else
             <!-- Default image if no profile picture was uploaded -->
-            <img src="{{ asset('images/faces/full.png') }}" alt="Default Profile Image"/>
+            <img src="{{ asset('images/elite/profileuser.png') }}" alt="Default Profile Image"/>
         @endif
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

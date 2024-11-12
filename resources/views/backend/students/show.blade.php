@@ -75,9 +75,9 @@
                                   data-course-id="{{ $course->id }}" 
                                   data-student-id="{{ $student->id }}"
                                   id="enroll-btn-{{ $course->id }}"
-                                  {{ $student->courses->contains($course->id) ? 'disabled' : '' }}
+                                
                                 >
-                                  {{ $student->courses->contains($course->id) ? 'Enrolled' : 'Enroll' }}
+                                   Enroll
                                 </button>
                               </li>
                             @endforeach
