@@ -115,7 +115,7 @@ class StudentController extends Controller
         // Retrieve the specific course if a course ID is provided
         $course = null;
         if ($courseId) {
-            $course = Course::findOrFail($courseId);
+            $course = Course::findOrFail($courseid);
         }
 
         // Pass the student, courses, and optionally the selected course to the view
@@ -195,8 +195,8 @@ class StudentController extends Controller
   // EnrollmentController.php
 public function enroll($studentId, $courseId)
 {
-    $student = Student::find($studentId);
-    $course = Course::find($courseId);
+    $student = Student::find($studentid);
+    $course = Course::find($courseid);
 
     if (!$student || !$course) {
         return response()->json(['success' => false, 'message' => 'Student or course not found.']);
