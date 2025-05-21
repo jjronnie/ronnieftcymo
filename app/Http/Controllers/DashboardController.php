@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Course;
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -52,6 +53,7 @@ class DashboardController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -63,6 +65,7 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         //
+       
     }
 
     /**
